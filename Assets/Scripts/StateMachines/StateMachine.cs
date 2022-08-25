@@ -12,7 +12,7 @@ public abstract class StateMachine : MonoBehaviour
         currentState?.Tick(Time.deltaTime); // ? is a short way of - if currentState != null   (? - is a null condition operator)
     }
 
-    void SwitchState(State newState)
+    public void SwitchState(State newState)
     {
             currentState?.Exit();
             currentState = newState;
