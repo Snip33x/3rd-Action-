@@ -14,11 +14,7 @@ public class PlayerTestState : PlayerBaseState
     }
     public override void Tick(float deltaTime)
     {
-        Vector3 movement = new Vector3();
-
-        movement.x = stateMachine.InputReader.MovementValue.x;
-        movement.y = 0;
-        movement.z = stateMachine.InputReader.MovementValue.y;
+        Vector3 movement = CalculateMovement();
 
         stateMachine.Controller.Move(movement * stateMachine.FreeLookMovementSpeed * deltaTime); //in fast framerate character will move fast, and in low he will move slow, so we multiply by deltaTime
 
@@ -36,9 +32,19 @@ public class PlayerTestState : PlayerBaseState
 
     }
 
-    private void OnJump()
+    private Vector3 CalculateMovement()
     {
-        stateMachine.SwitchState(new PlayerTestState(stateMachine));
+        Vector3 moveForward = stateMachine.MainCameraTransform.forward;
+        Vector3 moveRight = stateMachine.MainCameraTransform.right;
+
+        moveForward.y = 0;
+        moveRight.y = 0;
+
+        moveRight.Normalize();
+        moveRight.Normalize();
+
+
+        return moveForward * stateMachine.InputReader.MovementValue.y +
+            moveRight * stateMachine.InputReader.MovementValue.x;
     }
-    
 }
