@@ -23,7 +23,7 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         Vector3 movement = CalculateMovement();
 
-        stateMachine.Controller.Move(movement * stateMachine.FreeLookMovementSpeed * deltaTime); //in fast framerate character will move fast, and in low he will move slow, so we multiply by deltaTime
+        Move(movement * stateMachine.FreeLookMovementSpeed, deltaTime);
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero)
         {

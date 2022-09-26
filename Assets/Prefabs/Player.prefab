@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40cd9d8fe04318b4c9601fe5a25426fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cineTargetGroup: {fileID: 0}
 --- !u!135 &917753278836455613
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2345,6 +2346,7 @@ GameObject:
   - component: {fileID: 1922260233253096858}
   - component: {fileID: 1429638715884348123}
   - component: {fileID: 4703057779721544202}
+  - component: {fileID: 1392540071803916104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2390,6 +2392,7 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 4703057779721544202}
   <Animator>k__BackingField: {fileID: 1429638715884348123}
   <Targeter>k__BackingField: {fileID: 5450532203284037704}
+  <ForceReveicer>k__BackingField: {fileID: 1392540071803916104}
   <FreeLookMovementSpeed>k__BackingField: 6
   <RotationSmoothValue>k__BackingField: 10
 --- !u!114 &1922260233253096858
@@ -2442,6 +2445,19 @@ CharacterController:
   m_SkinWidth: 0.025
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.875, z: 0}
+--- !u!114 &1392540071803916104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495235806552162730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e6ee1e82109ec4580fd69f54d96b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 4703057779721544202}
 --- !u!1 &7661443627489905983
 GameObject:
   m_ObjectHideFlags: 0
