@@ -15,4 +15,14 @@ public abstract class PlayerBaseState : State
         stateMachine.Controller.Move((motion + stateMachine.ForceReveicer.Movement) * deltaTime);
     }
 
+    protected void FaceTarget()
+    {
+        if(stateMachine.Targeter.CurrentTarget == null) { return; }
+
+        Vector3 lookPos = stateMachine.Targeter.CurrentTarget.transform.position - stateMachine.transform.position;  //thanks to this camera is set behind player backs , and we see target in front of us
+        lookPos.y = 0f;
+
+        stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+    }
+
 }

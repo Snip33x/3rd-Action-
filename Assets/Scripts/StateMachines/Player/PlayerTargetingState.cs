@@ -21,6 +21,12 @@ public class PlayerTargetingState : PlayerBaseState
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
             return;
         }
+
+        Vector3 movement = CalculateMovement();
+
+        Move(movement * stateMachine.TargetingkMovementSpeed, deltaTime);  // we need to tweak movement speed when targeting
+
+        FaceTarget();
     }
 
     public override void Exit()
@@ -33,6 +39,16 @@ public class PlayerTargetingState : PlayerBaseState
         stateMachine.Targeter.Cancel();
 
         stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+    }
+
+    private Vector3 CalculateMovement()  //when we are targeting we want to move around target
+    {
+        Vector3 movement = new Vector3();
+
+        movement += stateMachine.transform.right * stateMachine.InputReader.MovementValue.x;
+        movement += stateMachine.transform.forward * stateMachine.InputReader.MovementValue.y;
+
+        return movement;
     }
 
 }

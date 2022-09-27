@@ -2394,6 +2394,7 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 5450532203284037704}
   <ForceReveicer>k__BackingField: {fileID: 1392540071803916104}
   <FreeLookMovementSpeed>k__BackingField: 6
+  <TargetingkMovementSpeed>k__BackingField: 5
   <RotationSmoothValue>k__BackingField: 10
 --- !u!114 &1922260233253096858
 MonoBehaviour:
