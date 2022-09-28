@@ -1,10 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTargetingState : PlayerBaseState
 {
-    private readonly int TargetingBlenddHash = Animator.StringToHash("TargetingBlendTree");
+    private readonly int TargetingBlendHash = Animator.StringToHash("TargetingBlendTree");
+    private readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
+    private readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
     public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
 
@@ -12,7 +15,7 @@ public class PlayerTargetingState : PlayerBaseState
     {
         stateMachine.InputReader.CancelEvent += OnCancel;
 
-        stateMachine.Animator.Play(TargetingBlenddHash);
+        stateMachine.Animator.Play(TargetingBlendHash);
     }
     public override void Tick(float deltaTime)
     {
@@ -26,8 +29,11 @@ public class PlayerTargetingState : PlayerBaseState
 
         Move(movement * stateMachine.TargetingkMovementSpeed, deltaTime);  // we need to tweak movement speed when targeting
 
+        UpdateAnimator(deltaTime);
+
         FaceTarget();
     }
+
 
     public override void Exit()
     {
@@ -51,4 +57,29 @@ public class PlayerTargetingState : PlayerBaseState
         return movement;
     }
 
+    private void UpdateAnimator(float deltaTime)  //our blend tree in animator Targeting State
+    {
+        if(stateMachine.InputReader.MovementValue.y == 0)
+        {
+            stateMachine.Animator.SetFloat(TargetingForwardHash, 0, 0.1f, deltaTime);  // , 0.1f, deltaTime  - this is making blend smoother
+        }
+        else
+        {
+            float value = stateMachine.InputReader.MovementValue.y > 0 ? 1f : -1f;
+            stateMachine.Animator.SetFloat(TargetingForwardHash, value, 0.1f, deltaTime);
+        }
+
+        if (stateMachine.InputReader.MovementValue.x == 0)
+        {
+            stateMachine.Animator.SetFloat(TargetingRightHash, 0, 0.1f, deltaTime);
+        }
+        else
+        {
+            float value = stateMachine.InputReader.MovementValue.x > 0 ? 1f : -1f;
+            stateMachine.Animator.SetFloat(TargetingRightHash, value, 0.1f, deltaTime);
+        }
+
+
+
+    }
 }
