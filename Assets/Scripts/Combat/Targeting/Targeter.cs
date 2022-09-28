@@ -7,9 +7,16 @@ public class Targeter : MonoBehaviour
 {
     [SerializeField] private CinemachineTargetGroup cineTargetGroup;
 
+    private Camera mainCamera;
+
     private List<Target> targets = new List<Target>();
 
     public Target CurrentTarget { get; private set; }
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -41,7 +48,30 @@ public class Targeter : MonoBehaviour
     {
         if(targets.Count == 0) { return false; }
 
-        CurrentTarget = targets[0];
+        Target closestTarget = null;
+        float closestTargetDistance = Mathf.Infinity;
+
+        foreach (Target target in targets)
+        {
+            Vector2 viewPos = mainCamera.WorldToViewportPoint(target.transform.position);
+
+            if (viewPos.x <0 || viewPos.x >1 || viewPos.y < 0 || viewPos.y > 1 ) // if the target is out of the screen
+            {
+                continue;
+            }
+
+            Vector2 toCenter = viewPos - new Vector2(0.5f, 0.5f);  //how far is target from the center of the screen
+            if(toCenter.sqrMagnitude < closestTargetDistance) //sqrMagnitude tells you how big Vector2 is // sqr is easier for computer to do
+            {
+                closestTarget = target;
+                closestTargetDistance = toCenter.sqrMagnitude;
+            }
+
+        }
+
+        if(closestTarget == null) { return false; } //we wont enter the targeting state becasue we don't have a target
+
+        CurrentTarget = closestTarget;
         cineTargetGroup.AddMember(CurrentTarget.transform, 1f, 2f);
 
         return true;
