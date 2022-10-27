@@ -20,5 +20,8 @@ public class ForceReceiver : MonoBehaviour
         {
             verticalVelocity += Physics.gravity.y * Time.deltaTime;
         }
+
+        Debug.Log(controller.isGrounded);
+        Debug.Log(verticalVelocity);
     }
 }
