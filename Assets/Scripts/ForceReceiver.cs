@@ -26,9 +26,6 @@ public class ForceReceiver : MonoBehaviour
         }
 
         impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
-
-        Debug.Log(controller.isGrounded);
-        Debug.Log(verticalVelocity);
     }
 
     public void AddForce(Vector3 force)
