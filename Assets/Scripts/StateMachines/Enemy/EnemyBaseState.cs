@@ -19,6 +19,16 @@ public abstract class EnemyBaseState : State //thaks to abstract, we don't have 
         stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
     }
 
+    protected void FacePlayer()
+    {
+        if (stateMachine.Player == null) { return; }
+
+        Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;  //thanks to this camera is set behind player backs , and we see target in front of us
+        lookPos.y = 0f;
+
+        stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+    }
+
     protected bool IsInChaseRange()
     {
         //float distance = Vector3.Magnitude(stateMachine.Player.transform.position - stateMachine.transform.position);
