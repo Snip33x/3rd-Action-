@@ -27,8 +27,7 @@ public class EnemyIdleState : EnemyBaseState
 
         if(IsInChaseRange())
         {
-            Debug.Log("In Range");
-            //Transition to chase state
+            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
             return;
         }
 
@@ -37,7 +36,7 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Exit()
     {
-        throw new System.NotImplementedException();
+        
     }
 
 
