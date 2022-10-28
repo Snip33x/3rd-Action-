@@ -786,7 +786,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3122015899542107837, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_ChildCameras.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5229023048481025127, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_Name

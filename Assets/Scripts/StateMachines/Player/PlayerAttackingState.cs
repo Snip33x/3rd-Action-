@@ -17,6 +17,7 @@ public class PlayerAttackingState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.Weapon.SetAttack(attack.Damage);
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration); //instead of Play animation we want to smoothi it with transition
     }
     public override void Tick(float deltaTime)
