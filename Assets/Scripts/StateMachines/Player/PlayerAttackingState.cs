@@ -79,7 +79,7 @@ public class PlayerAttackingState : PlayerBaseState
     private void TryApplyForce()
     {
         if (alreadyAppliedForce) { return; }
-        stateMachine.ForceReveicer.AddForce(stateMachine.transform.forward * attack.Force);
+        stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.Force);
 
         alreadyAppliedForce = true;
     }

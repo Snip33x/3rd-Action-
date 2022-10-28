@@ -9,4 +9,27 @@ public abstract class EnemyBaseState : State //thaks to abstract, we don't have 
     {
         this.stateMachine = stateMachine;
     }
+
+    protected void Move(float deltaTime)
+    {
+        Move(Vector3.zero, deltaTime);
+    }
+    protected void Move(Vector3 motion, float deltaTime)
+    {
+        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
+    }
+
+    protected bool IsInChaseRange()
+    {
+        //float distance = Vector3.Magnitude(stateMachine.Player.transform.position - stateMachine.transform.position);
+        //if (distance < stateMachine.PlayerChasingRange)
+        //{
+        //    return true;
+        //}
+        //return false;
+
+        float playerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
+        
+        return playerDistanceSqr <= stateMachine.PlayerChasingRange * stateMachine.PlayerChasingRange;
+    }
 }
