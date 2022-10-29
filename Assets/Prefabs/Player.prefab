@@ -2397,6 +2397,7 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 5450532203284037704}
   <ForceReceiver>k__BackingField: {fileID: 1392540071803916104}
   <Weapon>k__BackingField: {fileID: 7569528771106710246}
+  <Health>k__BackingField: {fileID: 7859899573427734373}
   <FreeLookMovementSpeed>k__BackingField: 6
   <TargetingkMovementSpeed>k__BackingField: 5
   <RotationSmoothValue>k__BackingField: 10

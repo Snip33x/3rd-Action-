@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
 
     private int health;
+
+    public event Action OnTakeDamage;
 
 
     private void Start()
@@ -22,6 +25,8 @@ public class Health : MonoBehaviour
         }
 
         health = Mathf.Max(health - damageAmout, 0); //reducing health by amount and making sure it doesn't drop below zero
+
+        OnTakeDamage?.Invoke();
 
         Debug.Log(health);
     }
