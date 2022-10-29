@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     private int health;
 
     public event Action OnTakeDamage;
+    public event Action OnDie;
 
 
     private void Start()
@@ -19,7 +20,7 @@ public class Health : MonoBehaviour
 
     public void DealDamage(int damageAmout)
     {
-        if (health <= 0)
+        if (health == 0)
         {
             return;
         }
@@ -27,6 +28,11 @@ public class Health : MonoBehaviour
         health = Mathf.Max(health - damageAmout, 0); //reducing health by amount and making sure it doesn't drop below zero
 
         OnTakeDamage?.Invoke();
+
+        if(health == 0)
+        {
+            OnDie?.Invoke();
+        }
 
         Debug.Log(health);
     }
