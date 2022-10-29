@@ -2639,7 +2639,7 @@ Transform:
   - {fileID: 5714122446468732241}
   - {fileID: 3293522807505377001}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1026573822285207109
 Animator:
@@ -2722,6 +2722,7 @@ MonoBehaviour:
   <PlayerChasingRange>k__BackingField: 10
   <AttackRange>k__BackingField: 1.5
   <AttackDamage>k__BackingField: 20
+  <AttackKnockback>k__BackingField: 20
 --- !u!114 &2068066713385507308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2760,6 +2761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5223953982822125234}
+  agent: {fileID: 1528876912511586026}
   drag: 0.3
 --- !u!114 &2065518224
 MonoBehaviour:

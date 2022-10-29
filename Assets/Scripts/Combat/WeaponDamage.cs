@@ -6,6 +6,7 @@ public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private Collider myCollider;
 
+    private float knockback;
     private int damage;
 
     private List<Collider> alreadyCollidedWith = new List<Collider>();  // this is to prevent hitting multiple times in one swing
@@ -16,20 +17,26 @@ public class WeaponDamage : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other == myCollider) { return; }
+        if (other == myCollider) { return; }
 
-        if(alreadyCollidedWith.Contains(other)) { return; }
+        if (alreadyCollidedWith.Contains(other)) { return; }
 
         alreadyCollidedWith.Add(other);
 
-        if(other.TryGetComponent<Health>(out Health health))
+        if (other.TryGetComponent<Health>(out Health health))
         {
             health.DealDamage(damage);
         }
+
+        if(other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
+        {
+            forceReceiver.AddForce((other.transform.position - myCollider.transform.position).normalized * knockback);
+        }
     }
 
-    public void SetAttack(int damage)
+    public void SetAttack(int damage, float knockback)
     {
         this.damage = damage;
+        this.knockback = knockback;
     }
 }
