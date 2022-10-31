@@ -55,7 +55,7 @@ public class Targeter : MonoBehaviour
         {
             Vector2 viewPos = mainCamera.WorldToViewportPoint(target.transform.position);
 
-            if (viewPos.x <0 || viewPos.x >1 || viewPos.y < 0 || viewPos.y > 1 ) // if the target is out of the screen
+            if (!target.GetComponentInChildren<Renderer>().isVisible) // if the target is out of the screen
             {
                 continue;
             }
