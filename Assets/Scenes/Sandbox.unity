@@ -651,9 +651,13 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3097815359420603099, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.8322369
+      objectReference: {fileID: 0}
     - target: {fileID: 3122015899542107837, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_ChildCameras.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5229023048481025127, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_Name
@@ -703,25 +707,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5229023048544266778, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.8322369
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229023049392077059, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.8322369
+      objectReference: {fileID: 0}
     - target: {fileID: 5229023049392077060, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.018029831
+      value: -0.018029839
       objectReference: {fileID: 0}
     - target: {fileID: 5229023049392077060, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0013030963
+      value: 0.0013030969
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229023050331610455, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.8322369
       objectReference: {fileID: 0}
     - target: {fileID: 5321088296010739808, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17842482
+      value: 0.1784248
       objectReference: {fileID: 0}
     - target: {fileID: 5321088296010739808, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008465141
+      value: 0.000000008465139
       objectReference: {fileID: 0}
     - target: {fileID: 5321088296010739808, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000015350229
+      value: -0.0000000015350226
       objectReference: {fileID: 0}
     - target: {fileID: 6586454832401260558, guid: b053386bc0b42b5448e02bea238a1a4f, type: 3}
       propertyPath: m_LocalPosition.x
