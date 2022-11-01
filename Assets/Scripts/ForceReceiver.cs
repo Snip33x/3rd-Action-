@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -38,6 +39,12 @@ public class ForceReceiver : MonoBehaviour
                 agent.enabled = true;
             }
         }
+    }
+
+    internal void Reset()
+    {
+        impact = Vector3.zero;
+        verticalVelocity = 0f;
     }
 
     public void AddForce(Vector3 force)
