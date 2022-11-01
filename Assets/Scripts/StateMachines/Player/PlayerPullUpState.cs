@@ -19,7 +19,7 @@ public class PlayerPullUpState : PlayerBaseState
     }
     public override void Tick(float deltaTime)
     {
-        if(stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }  //wait till animation is done
+        if(GetNormalizedTime(stateMachine.Animator, "Climbing") <1) { return; }  //wait till animation is done
 
         stateMachine.Controller.enabled = false;
         stateMachine.transform.Translate(Offset, Space.Self); //we teleport player after pullup animation

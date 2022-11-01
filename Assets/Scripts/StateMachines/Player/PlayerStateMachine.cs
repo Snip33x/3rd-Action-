@@ -27,6 +27,9 @@ public class PlayerStateMachine : StateMachine
     // Start is called before the first frame update
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         MainCameraTransform = Camera.main.transform;
 
         SwitchState(new PlayerFreeLookState(this));
